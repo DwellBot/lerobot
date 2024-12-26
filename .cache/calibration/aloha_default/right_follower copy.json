@@ -1,0 +1,135 @@
+{
+    "homing_offset": [
+        -2048,
+        -1024,
+        -1024,
+        3072,
+        3072,
+        2048,
+        2048,
+        2048,
+        -3072
+    ],
+    "drive_mode": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0
+    ],
+    "start_pos": [
+        2007,
+        1091,
+        1108,
+        2999,
+        3011,
+        2007,
+        2090,
+        2070,
+        3610
+    ],
+    "end_pos": [
+        3046,
+        2069,
+        2085,
+        -2001,
+        -2011,
+        -1007,
+        -1038,
+        -997,
+        3613
+    ],
+    "calib_mode": [
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "DEGREE",
+        "LINEAR"
+    ],
+    "motor_names": [
+        "waist",
+        "shoulder",
+        "shoulder_shadow",
+        "elbow",
+        "elbow_shadow",
+        "forearm_roll",
+        "wrist_angle",
+        "wrist_rotate",
+        "gripper"
+    ]{
+        "homing_offset": [
+            -2048,
+            -1024,
+            -1024,
+            -1024,
+            -1024,
+            0,
+            -2048,
+            -2048,
+            -2048
+        ],
+        "drive_mode": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+        ],
+        "start_pos": [
+            -20,
+            896,
+            912,
+            1015,
+            1063,
+            41,
+            2005,
+            2030,
+            3574
+        ],
+        "end_pos": [
+            3084,
+            2043,
+            2067,
+            2035,
+            2081,
+            988,
+            3106,
+            3062,
+            3575
+        ],
+        "calib_mode": [
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "DEGREE",
+            "LINEAR"
+        ],
+        "motor_names": [
+            "waist",
+            "shoulder",
+            "shoulder_shadow",
+            "elbow",
+            "elbow_shadow",
+            "forearm_roll",
+            "wrist_angle",
+            "wrist_rotate",
+            "gripper"
+        ]
+    }
+}

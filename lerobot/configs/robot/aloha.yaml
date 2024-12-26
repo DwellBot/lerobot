@@ -28,23 +28,9 @@ calibration_dir: .cache/calibration/aloha_default
 max_relative_target: 5
 
 leader_arms:
-  left:
-    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/ttyDXL_leader_left
-    motors:  # window_x
-      # name: (index, model)
-      waist: [1, xm430-w350]
-      shoulder: [2, xm430-w350]
-      shoulder_shadow: [3, xm430-w350]
-      elbow: [4, xm430-w350]
-      elbow_shadow: [5, xm430-w350]
-      forearm_roll: [6, xm430-w350]
-      wrist_angle: [7, xm430-w350]
-      wrist_rotate: [8, xl430-w250]
-      gripper: [9, xc430-w150]
   right:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/ttyDXL_leader_right
+    port: /dev/ttyDXL_leader
     motors:  # window_x
       # name: (index, model)
       waist: [1, xm430-w350]
@@ -54,27 +40,27 @@ leader_arms:
       elbow_shadow: [5, xm430-w350]
       forearm_roll: [6, xm430-w350]
       wrist_angle: [7, xm430-w350]
-      wrist_rotate: [8, xl430-w250]
-      gripper: [9, xc430-w150]
+      wrist_rotate: [8, xm430-w350]
+      gripper: [9, xm430-w350]
+#  right:
+#    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
+#    port: /dev/ttyDXL_leader_right
+#    motors:  # window_x
+#      # name: (index, model)
+#      waist: [1, xm430-w350]
+#      shoulder: [2, xm430-w350]
+#      shoulder_shadow: [3, xm430-w350]
+#      elbow: [4, xm430-w350]
+#      elbow_shadow: [5, xm430-w350]
+#      forearm_roll: [6, xm430-w350]
+#      wrist_angle: [7, xm430-w350]
+#      wrist_rotate: [8, xl430-w250]
+#      gripper: [9, xc430-w150]
 
 follower_arms:
-  left:
-    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/ttyDXL_follower_left
-    motors:
-      # name: [index, model]
-      waist: [1, xm540-w270]
-      shoulder: [2, xm540-w270]
-      shoulder_shadow: [3, xm540-w270]
-      elbow: [4, xm540-w270]
-      elbow_shadow: [5, xm540-w270]
-      forearm_roll: [6, xm540-w270]
-      wrist_angle: [7, xm540-w270]
-      wrist_rotate: [8, xm430-w350]
-      gripper: [9, xm430-w350]
   right:
     _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
-    port: /dev/ttyDXL_follower_right
+    port: /dev/ttyDXL_follower
     motors:
       # name: [index, model]
       waist: [1, xm540-w270]
@@ -86,6 +72,20 @@ follower_arms:
       wrist_angle: [7, xm540-w270]
       wrist_rotate: [8, xm430-w350]
       gripper: [9, xm430-w350]
+#  right:
+#    _target_: lerobot.common.robot_devices.motors.dynamixel.DynamixelMotorsBus
+#    port: /dev/ttyDXL_follower_right
+#    motors:
+#      # name: [index, model]
+#      waist: [1, xm540-w270]
+#      shoulder: [2, xm540-w270]
+#      shoulder_shadow: [3, xm540-w270]
+#      elbow: [4, xm540-w270]
+#      elbow_shadow: [5, xm540-w270]
+#      forearm_roll: [6, xm540-w270]
+#      wrist_angle: [7, xm540-w270]
+#      wrist_rotate: [8, xm430-w350]
+#      gripper: [9, xm430-w350]
 
 # Troubleshooting: If one of your IntelRealSense cameras freeze during
 # data recording due to bandwidth limit, you might need to plug the camera
