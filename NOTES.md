@@ -24,6 +24,7 @@ python lerobot/scripts/train.py \
   device=cuda \
   wandb.enable=true
 
+## Playback eval
   python lerobot/scripts/control_robot.py record \
   --robot-path lerobot/configs/robot/aloha.yaml \
   --robot-overrides max_relative_target=null \
@@ -37,3 +38,18 @@ python lerobot/scripts/train.py \
   --num-episodes 2 \
   --num-image-writer-processes 1 \
   -p outputs/train/act_aloha_test/checkpoints/last/pretrained_model
+
+## record
+
+  python lerobot/scripts/control_robot.py record \
+  --robot-path lerobot/configs/robot/aloha.yaml \
+  --robot-overrides max_relative_target=null \
+  --single-task SINGLE_TASK \
+  --fps 30 \
+  --repo-id dwellbot/ath \
+  --tags aloha dwell teleop \
+  --warmup-time-s 5 \
+  --episode-time-s 15 \
+  --reset-time-s 10 \
+  --num-episodes 2 \
+  --push-to-hub 0
