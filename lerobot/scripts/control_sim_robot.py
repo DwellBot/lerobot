@@ -381,7 +381,7 @@ if __name__ == "__main__":
     base_parser.add_argument(
         "--robot-path",
         type=str,
-        default="lerobot/configs/robot/koch.yaml",
+        default="lerobot/configs/robot/dwell.yaml",
         help="Path to robot yaml file used to instantiate the robot using `make_robot` factory function.",
     )
 
@@ -430,7 +430,7 @@ if __name__ == "__main__":
     parser_record.add_argument(
         "--push-to-hub",
         type=int,
-        default=1,
+        default=0,
         help="Upload dataset to Hugging Face hub.",
     )
     parser_record.add_argument(
