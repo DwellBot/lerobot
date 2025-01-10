@@ -296,7 +296,7 @@ def main():
     parser.add_argument(
         "--push-to-hub",
         type=int,
-        default=1,
+        default=0,
         help="Upload to hub.",
     )
     parser.add_argument(

@@ -53,3 +53,21 @@ python lerobot/scripts/train.py \
   --reset-time-s 10 \
   --num-episodes 2 \
   --push-to-hub 0
+
+## Experiments
+
+Wrap this in a script
+
+EXPERIMENT_NAME="block-pick-up"
+
+  python lerobot/scripts/control_robot.py record
+  --single-task $EXPERIMENT_NAME # to customize 
+  --repo-id dwellbot/$EXPERIMENT_NAME # will pass in
+  --tags aloha dwell teleop # will pass in
+  --num-episodes 20 # Will pass this in
+
+### TODO
+
++ Create a script that will check for the existance of the cache dir and restart if present
++ Wraps the above experimental values
++ auto syncs the cache dir to s3
