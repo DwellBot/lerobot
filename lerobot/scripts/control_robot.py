@@ -339,7 +339,7 @@ def replay(
         busy_wait(1 / cfg.fps - dt_s)
 
         dt_s = time.perf_counter() - start_episode_t
-        log_control_info(robot, dt_s, fps=cfg.fps)
+        #log_control_info(robot, dt_s, fps=cfg.fps)
 
 
 @parser.wrap()

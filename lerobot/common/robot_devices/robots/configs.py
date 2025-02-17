@@ -107,7 +107,7 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
             # ),
             "right": DynamixelMotorsBusConfig(
                 # window_x
-                port="/dev/ttyDXL_leader_right",
+                port="/dev/ttyDXL_leader",
                 motors={
                     # name: (index, model)
                     "waist": [1, "xm430-w350"],
@@ -142,10 +142,10 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
             #     },
             # ),
             "right": DynamixelMotorsBusConfig(
-                port="/dev/ttyDXL_follower_right",
+                port="/dev/ttyDXL_follower",
                 motors={
                     # name: (index, model)
-                    "waist": [1, "xm540-w270"],
+                    "waist": [1, "xm430-w350"],
                     "shoulder": [2, "xm540-w270"],
                     "shoulder_shadow": [3, "xm540-w270"],
                     "elbow": [4, "xm540-w270"],
