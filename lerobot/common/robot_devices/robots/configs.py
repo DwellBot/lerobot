@@ -89,22 +89,22 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
 
     leader_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
-            "left": DynamixelMotorsBusConfig(
-                # window_x
-                port="/dev/ttyDXL_leader_left",
-                motors={
-                    # name: (index, model)
-                    "waist": [1, "xm430-w350"],
-                    "shoulder": [2, "xm430-w350"],
-                    "shoulder_shadow": [3, "xm430-w350"],
-                    "elbow": [4, "xm430-w350"],
-                    "elbow_shadow": [5, "xm430-w350"],
-                    "forearm_roll": [6, "xm430-w350"],
-                    "wrist_angle": [7, "xm430-w350"],
-                    "wrist_rotate": [8, "xl430-w250"],
-                    "gripper": [9, "xc430-w150"],
-                },
-            ),
+            # "left": DynamixelMotorsBusConfig(
+            #     # window_x
+            #     port="/dev/ttyDXL_leader_left",
+            #     motors={
+            #         # name: (index, model)
+            #         "waist": [1, "xm430-w350"],
+            #         "shoulder": [2, "xm430-w350"],
+            #         "shoulder_shadow": [3, "xm430-w350"],
+            #         "elbow": [4, "xm430-w350"],
+            #         "elbow_shadow": [5, "xm430-w350"],
+            #         "forearm_roll": [6, "xm430-w350"],
+            #         "wrist_angle": [7, "xm430-w350"],
+            #         "wrist_rotate": [8, "xl430-w250"],
+            #         "gripper": [9, "xc430-w150"],
+            #     },
+            # ),
             "right": DynamixelMotorsBusConfig(
                 # window_x
                 port="/dev/ttyDXL_leader_right",
@@ -126,21 +126,21 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
 
     follower_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
-            "left": DynamixelMotorsBusConfig(
-                port="/dev/ttyDXL_follower_left",
-                motors={
-                    # name: (index, model)
-                    "waist": [1, "xm540-w270"],
-                    "shoulder": [2, "xm540-w270"],
-                    "shoulder_shadow": [3, "xm540-w270"],
-                    "elbow": [4, "xm540-w270"],
-                    "elbow_shadow": [5, "xm540-w270"],
-                    "forearm_roll": [6, "xm540-w270"],
-                    "wrist_angle": [7, "xm540-w270"],
-                    "wrist_rotate": [8, "xm430-w350"],
-                    "gripper": [9, "xm430-w350"],
-                },
-            ),
+            # "left": DynamixelMotorsBusConfig(
+            #     port="/dev/ttyDXL_follower_left",
+            #     motors={
+            #         # name: (index, model)
+            #         "waist": [1, "xm540-w270"],
+            #         "shoulder": [2, "xm540-w270"],
+            #         "shoulder_shadow": [3, "xm540-w270"],
+            #         "elbow": [4, "xm540-w270"],
+            #         "elbow_shadow": [5, "xm540-w270"],
+            #         "forearm_roll": [6, "xm540-w270"],
+            #         "wrist_angle": [7, "xm540-w270"],
+            #         "wrist_rotate": [8, "xm430-w350"],
+            #         "gripper": [9, "xm430-w350"],
+            #     },
+            # ),
             "right": DynamixelMotorsBusConfig(
                 port="/dev/ttyDXL_follower_right",
                 motors={
@@ -164,26 +164,26 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
     # on another USB hub or PCIe card.
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "cam_high": IntelRealSenseCameraConfig(
-                serial_number=128422271347,
+            "cam_high": OpenCVCameraConfig(
+                camera_index="/dev/CAM_TOP",
                 fps=30,
                 width=640,
                 height=480,
             ),
-            "cam_low": IntelRealSenseCameraConfig(
-                serial_number=130322270656,
+            "cam_low": OpenCVCameraConfig(
+                camera_index="/dev/CAM_BOTTOM",
                 fps=30,
                 width=640,
                 height=480,
             ),
-            "cam_left_wrist": IntelRealSenseCameraConfig(
-                serial_number=218622272670,
-                fps=30,
-                width=640,
-                height=480,
-            ),
-            "cam_right_wrist": IntelRealSenseCameraConfig(
-                serial_number=130322272300,
+            # "cam_left_wrist": IntelRealSenseCameraConfig(
+            #     serial_number=218622272670,
+            #     fps=30,
+            #     width=640,
+            #     height=480,
+            # ),
+            "cam_right_wrist": OpenCVCameraConfig(
+                camera_index="/dev/CAM_RIGHT_WRIST",
                 fps=30,
                 width=640,
                 height=480,

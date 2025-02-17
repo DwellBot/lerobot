@@ -25,7 +25,7 @@ class OpenCVCameraConfig(CameraConfig):
     ```
     """
 
-    camera_index: int
+    camera_index: int | str
     fps: int | None = None
     width: int | None = None
     height: int | None = None
