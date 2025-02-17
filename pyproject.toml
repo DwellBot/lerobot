@@ -57,7 +57,6 @@ dependencies = [
     "zarr>=2.17.0",
     "dynamixel-sdk>=3.7.31",
     "pynput>=1.7.7"
-
 ]
 
 [project.optional-dependencies]
