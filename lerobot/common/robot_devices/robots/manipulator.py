@@ -152,6 +152,7 @@ class ManipulatorRobot:
         self.cameras = make_cameras_from_configs(self.config.cameras)
         self.is_connected = False
         self.logs = {}
+        self.images = {}
 
     def get_motor_names(self, arm: dict[str, MotorsBus]) -> list:
         return [f"{arm}_{motor}" for arm, bus in arm.items() for motor in bus.motors]
@@ -492,11 +493,11 @@ class ManipulatorRobot:
         action = torch.cat(action)
 
         # Capture images from cameras
-        images = {}
+        self.images = {}
         for name in self.cameras:
             before_camread_t = time.perf_counter()
-            images[name] = self.cameras[name].async_read()
-            images[name] = torch.from_numpy(images[name])
+            self.images[name] = self.cameras[name].async_read()
+            self.images[name] = torch.from_numpy(self.images[name])
             self.logs[f"read_camera_{name}_dt_s"] = self.cameras[name].logs["delta_timestamp_s"]
             self.logs[f"async_read_camera_{name}_dt_s"] = time.perf_counter() - before_camread_t
 
@@ -505,7 +506,7 @@ class ManipulatorRobot:
         obs_dict["observation.state"] = state
         action_dict["action"] = action
         for name in self.cameras:
-            obs_dict[f"observation.images.{name}"] = images[name]
+            obs_dict[f"observation.images.{name}"] = self.images[name]
 
         return obs_dict, action_dict
 

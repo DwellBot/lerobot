@@ -194,16 +194,46 @@ def calibrate(robot: Robot, cfg: CalibrateControlConfig):
     robot.disconnect()
     print("Calibration is done! You can now teleoperate and record datasets!")
 
+import threading
+import cv2
+import os
 
 @safe_disconnect
 def teleoperate(robot: Robot, cfg: TeleoperateControlConfig):
-    control_loop(
-        robot,
-        control_time_s=cfg.teleop_time_s,
-        fps=cfg.fps,
-        teleoperate=True,
-        display_cameras=cfg.display_cameras,
+    os.environ["QT_QPA_PLATFORM"] = "xcb"  # Linux users
+    #os.environ["QT_QPA_PLATFORM_PLUGIN_PATH"] = "/usr/lib/x86_64-linux-gnu/qt5/plugins/platforms"  # Adjust as needed
+
+    # Start the control loop in a separate thread
+    thread = threading.Thread(
+        target=control_loop,
+        kwargs={
+            "robot": robot,
+            "control_time_s": cfg.teleop_time_s,
+            "fps": cfg.fps,
+            "teleoperate": True,
+            "display_cameras": False
+        },
+        daemon=True
     )
+    thread.start()
+
+    while True:
+        if cfg.display_cameras:
+            #image_keys = [key for key in robot.images.keys()]
+            for key in robot.images.keys():
+                key_np = robot.images[key].numpy()
+                color = cv2.cvtColor(key_np, cv2.COLOR_RGB2BGR)
+                cv2.imshow(key, color)
+            if cv2.waitKey(1) & 0xFF == ord('q'):  # Quit on 'q' press
+                break
+
+    # Clean up
+    cv2.destroyAllWindows()
+    thread.join()
+
+    
+
+
 
 
 @safe_disconnect

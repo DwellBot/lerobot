@@ -11,6 +11,7 @@ from copy import copy
 from functools import cache
 
 import cv2
+import numpy as np
 import torch
 import tqdm
 from deepdiff import DeepDiff
@@ -253,16 +254,18 @@ def control_loop(
 
         if display_cameras and not is_headless():
             image_keys = [key for key in observation if "image" in key]
-            # for key in image_keys:
-            #     cv2.imshow(key, cv2.cvtColor(observation[key].numpy(), cv2.COLOR_RGB2BGR))
-            # cv2.waitKey(1)
+            for key in image_keys:
+                key_np = observation[key].numpy()
+                color = cv2.cvtColor(key_np, cv2.COLOR_RGB2BGR)
+                cv2.imshow(key, color)
+            cv2.waitKey(1)
 
         if fps is not None:
             dt_s = time.perf_counter() - start_loop_t
             busy_wait(1 / fps - dt_s)
 
         dt_s = time.perf_counter() - start_loop_t
-        log_control_info(robot, dt_s, fps=fps)
+        #log_control_info(robot, dt_s, fps=fps)
 
         timestamp = time.perf_counter() - start_episode_t
         if events["exit_early"]:

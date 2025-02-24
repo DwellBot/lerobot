@@ -164,18 +164,18 @@ class AlohaRobotConfig(ManipulatorRobotConfig):
     # on another USB hub or PCIe card.
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "cam_high": OpenCVCameraConfig(
-                camera_index="/dev/CAM_TOP",
-                fps=30,
-                width=640,
-                height=480,
-            ),
-            "cam_low": OpenCVCameraConfig(
-                camera_index="/dev/CAM_BOTTOM",
-                fps=30,
-                width=640,
-                height=480,
-            ),
+            # "cam_high": OpenCVCameraConfig(
+            #     camera_index="/dev/CAM_TOP",
+            #     fps=30,
+            #     width=640,
+            #     height=480,
+            # ),
+            # "cam_low": OpenCVCameraConfig(
+            #     camera_index="/dev/CAM_BOTTOM",
+            #     fps=30,
+            #     width=640,
+            #     height=480,
+            # ),
             # "cam_left_wrist": IntelRealSenseCameraConfig(
             #     serial_number=218622272670,
             #     fps=30,
