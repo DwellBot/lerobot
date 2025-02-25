@@ -217,24 +217,20 @@ def teleoperate(robot: Robot, cfg: TeleoperateControlConfig):
     )
     thread.start()
 
-    while True:
-        if cfg.display_cameras:
-            #image_keys = [key for key in robot.images.keys()]
-            for key in robot.images.keys():
-                key_np = robot.images[key].numpy()
-                color = cv2.cvtColor(key_np, cv2.COLOR_RGB2BGR)
-                cv2.imshow(key, color)
-            if cv2.waitKey(1) & 0xFF == ord('q'):  # Quit on 'q' press
-                break
+    # while True:
+    #     if cfg.display_cameras:
+    #         #image_keys = [key for key in robot.images.keys()]
+    #         for key in robot.images.keys():
+    #             key_np = robot.images[key].numpy()
+    #             color = cv2.cvtColor(key_np, cv2.COLOR_RGB2BGR)
+    #             cv2.imshow(key, color)
+    #         if cv2.waitKey(1) & 0xFF == ord('q'):  # Quit on 'q' press
+    #             break
+
 
     # Clean up
-    cv2.destroyAllWindows()
+    # cv2.destroyAllWindows()
     thread.join()
-
-    
-
-
-
 
 @safe_disconnect
 def record(
